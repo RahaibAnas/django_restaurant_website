@@ -1,0 +1,397 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Gallery
+{% endblock title %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/gallery.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ===== PAGE BANNER ===== -->
+<section class="page-banner">
+    <div class="banner-overlay"></div>
+    <div class="banner-content">
+        <h1>Our <span>Gallery</span></h1>
+        <div class="breadcrumb">
+            <a href="{% url 'home' %}">Home</a>
+            <span><i class="fas fa-chevron-right"></i></span>
+            <span>Gallery</span>
+        </div>
+    </div>
+</section>
+
+<!-- ===== GALLERY SECTION ===== -->
+<section class="gallery-section">
+
+    <!-- ===== SECTION HEADER ===== -->
+    <div class="section-header">
+        <p class="section-subtitle">Our Moments</p>
+        <h2>A Glimpse of Our <span>World</span></h2>
+        <p class="section-desc">
+            Explore our restaurant, delicious dishes,
+            and the wonderful moments we share with our guests.
+        </p>
+    </div>
+
+    <!-- ===== FILTER BUTTONS ===== -->
+    <div class="gallery-filter">
+        <button class="filter-btn active" data-filter="all">
+            <i class="fas fa-th"></i> All
+        </button>
+        <button class="filter-btn" data-filter="food">
+            <i class="fas fa-utensils"></i> Food
+        </button>
+        <button class="filter-btn" data-filter="interior">
+            <i class="fas fa-chair"></i> Interior
+        </button>
+        <button class="filter-btn" data-filter="team">
+            <i class="fas fa-users"></i> Our Team
+        </button>
+        <button class="filter-btn" data-filter="events">
+            <i class="fas fa-calendar-alt"></i> Events
+        </button>
+    </div>
+
+    <!-- ===== GALLERY GRID ===== -->
+    <div class="gallery-grid" id="galleryGrid">
+
+        <!-- FOOD IMAGES -->
+        <div class="gallery-item fade-in" data-category="food">
+            <div class="gallery-image">
+                <img src="{% static 'images/gallery/food1.jpg' %}" alt="Grilled Chicken">
+                <div class="gallery-overlay">
+                    <div class="gallery-overlay-content">
+                        <button class="gallery-zoom" data-src="{% static 'images/gallery/food1.jpg' %}"
+                            data-title="Grilled Chicken" data-category="Food">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </div>
+                    <div class="gallery-info">
+                        <h4>Grilled Chicken</h4>
+                        <span>Food</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-item fade-in large" data-category="food">
+            <div class="gallery-image">
+                <img src="{% static 'images/gallery/food2.jpg' %}" alt="Margherita Pizza">
+                <div class="gallery-overlay">
+                    <div class="gallery-overlay-content">
+                        <button class="gallery-zoom" data-src="{% static 'images/gallery/food2.jpg' %}"
+                            data-title="Margherita Pizza" data-category="Food">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </div>
+                    <div class="gallery-info">
+                        <h4>Margherita Pizza</h4>
+                        <span>Food</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-item fade-in" data-category="food">
+            <div class="gallery-image">
+                <img src="{% static 'images/gallery/food3.jpg' %}" alt="Beef Burger">
+                <div class="gallery-overlay">
+                    <div class="gallery-overlay-content">
+                        <button class="gallery-zoom" data-src="{% static 'images/gallery/food3.jpg' %}"
+                            data-title="Beef Burger" data-category="Food">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </div>
+                    <div class="gallery-info">
+                        <h4>Beef Burger</h4>
+                        <span>Food</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-item fade-in" data-category="food">
+            <div class="gallery-image">
+                <img src="{% static 'images/gallery/food4.jpg' %}" alt="Grilled Salmon">
+                <div class="gallery-overlay">
+                    <div class="gallery-overlay-content">
+                        <button class="gallery-zoom" data-src="{% static 'images/gallery/food4.jpg' %}"
+                            data-title="Grilled Salmon" data-category="Food">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </div>
+                    <div class="gallery-info">
+                        <h4>Grilled Salmon</h4>
+                        <span>Food</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-item fade-in tall" data-category="food">
+            <div class="gallery-image">
+                <img src="{% static 'images/gallery/food5.jpg' %}" alt="Chocolate Cake">
+                <div class="gallery-overlay">
+                    <div class="gallery-overlay-content">
+                        <button class="gallery-zoom" data-src="{% static 'images/gallery/food5.jpg' %}"
+                            data-title="Chocolate Cake" data-category="Food">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </div>
+                    <div class="gallery-info">
+                        <h4>Chocolate Cake</h4>
+                        <span>Food</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-item fade-in" data-category="food">
+            <div class="gallery-image">
+                <img src="{% static 'images/gallery/food6.jpg' %}" alt="Fresh Pasta">
+                <div class="gallery-overlay">
+                    <div class="gallery-overlay-content">
+                        <button class="gallery-zoom" data-src="{% static 'images/gallery/food6.jpg' %}"
+                            data-title="Fresh Pasta" data-category="Food">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </div>
+                    <div class="gallery-info">
+                        <h4>Fresh Pasta</h4>
+                        <span>Food</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- INTERIOR IMAGES -->
+        <div class="gallery-item fade-in large" data-category="interior">
+            <div class="gallery-image">
+                <img src="{% static 'images/gallery/interior1.jpg' %}" alt="Main Dining Area">
+                <div class="gallery-overlay">
+                    <div class="gallery-overlay-content">
+                        <button class="gallery-zoom" data-src="{% static 'images/gallery/interior1.jpg' %}"
+                            data-title="Main Dining Area" data-category="Interior">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </div>
+                    <div class="gallery-info">
+                        <h4>Main Dining Area</h4>
+                        <span>Interior</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-item fade-in" data-category="interior">
+            <div class="gallery-image">
+                <img src="{% static 'images/gallery/interior2.jpg' %}" alt="Private Dining">
+                <div class="gallery-overlay">
+                    <div class="gallery-overlay-content">
+                        <button class="gallery-zoom" data-src="{% static 'images/gallery/interior2.jpg' %}"
+                            data-title="Private Dining" data-category="Interior">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </div>
+                    <div class="gallery-info">
+                        <h4>Private Dining</h4>
+                        <span>Interior</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-item fade-in" data-category="interior">
+            <div class="gallery-image">
+                <img src="{% static 'images/gallery/interior3.jpg' %}" alt="Outdoor Seating">
+                <div class="gallery-overlay">
+                    <div class="gallery-overlay-content">
+                        <button class="gallery-zoom" data-src="{% static 'images/gallery/interior3.jpg' %}"
+                            data-title="Outdoor Seating" data-category="Interior">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </div>
+                    <div class="gallery-info">
+                        <h4>Outdoor Seating</h4>
+                        <span>Interior</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TEAM IMAGES -->
+        <div class="gallery-item fade-in" data-category="team">
+            <div class="gallery-image">
+                <img src="{% static 'images/gallery/team1.jpg' %}" alt="Head Chef Marco">
+                <div class="gallery-overlay">
+                    <div class="gallery-overlay-content">
+                        <button class="gallery-zoom" data-src="{% static 'images/gallery/team1.jpg' %}"
+                            data-title="Head Chef Marco" data-category="Team">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </div>
+                    <div class="gallery-info">
+                        <h4>Head Chef Marco</h4>
+                        <span>Team</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-item fade-in tall" data-category="team">
+            <div class="gallery-image">
+                <img src="{% static 'images/gallery/team2.jpg' %}" alt="Our Kitchen Team">
+                <div class="gallery-overlay">
+                    <div class="gallery-overlay-content">
+                        <button class="gallery-zoom" data-src="{% static 'images/gallery/team2.jpg' %}"
+                            data-title="Our Kitchen Team" data-category="Team">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </div>
+                    <div class="gallery-info">
+                        <h4>Our Kitchen Team</h4>
+                        <span>Team</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-item fade-in" data-category="team">
+            <div class="gallery-image">
+                <img src="{% static 'images/gallery/team3.jpg' %}" alt="Chef in Action">
+                <div class="gallery-overlay">
+                    <div class="gallery-overlay-content">
+                        <button class="gallery-zoom" data-src="{% static 'images/gallery/team3.jpg' %}"
+                            data-title="Chef in Action" data-category="Team">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </div>
+                    <div class="gallery-info">
+                        <h4>Chef in Action</h4>
+                        <span>Team</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EVENTS IMAGES -->
+        <div class="gallery-item fade-in large" data-category="events">
+            <div class="gallery-image">
+                <img src="{% static 'images/gallery/event1.jpg' %}" alt="Birthday Celebration">
+                <div class="gallery-overlay">
+                    <div class="gallery-overlay-content">
+                        <button class="gallery-zoom" data-src="{% static 'images/gallery/event1.jpg' %}"
+                            data-title="Birthday Celebration" data-category="Events">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </div>
+                    <div class="gallery-info">
+                        <h4>Birthday Celebration</h4>
+                        <span>Events</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-item fade-in" data-category="events">
+            <div class="gallery-image">
+                <img src="{% static 'images/gallery/event2.jpg' %}" alt="Corporate Dinner">
+                <div class="gallery-overlay">
+                    <div class="gallery-overlay-content">
+                        <button class="gallery-zoom" data-src="{% static 'images/gallery/event2.jpg' %}"
+                            data-title="Corporate Dinner" data-category="Events">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </div>
+                    <div class="gallery-info">
+                        <h4>Corporate Dinner</h4>
+                        <span>Events</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-item fade-in" data-category="events">
+            <div class="gallery-image">
+                <img src="{% static 'images/gallery/event3.jpg' %}" alt="Wedding Reception">
+                <div class="gallery-overlay">
+                    <div class="gallery-overlay-content">
+                        <button class="gallery-zoom" data-src="{% static 'images/gallery/event3.jpg' %}"
+                            data-title="Wedding Reception" data-category="Events">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </div>
+                    <div class="gallery-info">
+                        <h4>Wedding Reception</h4>
+                        <span>Events</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ===== NO RESULTS ===== -->
+    <div class="no-results" id="noResults">
+        <i class="fas fa-images"></i>
+        <h3>No images found!</h3>
+        <p>Try selecting a different category.</p>
+    </div>
+
+    <!-- ===== LOAD MORE BUTTON ===== -->
+    <div class="load-more-container">
+        <button class="load-more-btn" id="loadMoreBtn">
+            <i class="fas fa-plus"></i> Load More
+        </button>
+    </div>
+
+</section>
+
+<!-- ===== LIGHTBOX ===== -->
+<div class="lightbox" id="lightbox">
+    <div class="lightbox-overlay" id="lightboxOverlay"></div>
+    <div class="lightbox-container">
+        <button class="lightbox-close" id="lightboxClose">
+            <i class="fas fa-times"></i>
+        </button>
+        <button class="lightbox-prev" id="lightboxPrev">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightboxImg">
+            <div class="lightbox-info">
+                <h3 id="lightboxTitle"></h3>
+                <span id="lightboxCategory"></span>
+            </div>
+        </div>
+        <button class="lightbox-next" id="lightboxNext">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+</div>
+
+<!-- ===== CTA SECTION ===== -->
+<section class="cta">
+    <div class="cta-content">
+        <h2>Want to Experience It <span>In Person?</span></h2>
+        <p>Book a table and create your own memorable moments with us!</p>
+        <div class="cta-buttons">
+            <a href="{% url 'contact' %}" class="btn btn-primary">
+                Reserve a Table
+            </a>
+            <a href="{% url 'menu' %}" class="btn btn-white">
+                View Our Menu
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
+
+{% block extra_js %}
+<script src="{% static 'js/gallery.js' %}"></script>
+{% endblock %}

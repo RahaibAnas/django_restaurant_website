@@ -1,0 +1,32 @@
+{% load static %}
+
+<header>
+  <div class="logo">
+    <h1>SAVOR</h1>
+  </div>
+  <div class="navbar">
+    <ul>
+      <li><a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+          Home
+        </a></li>
+      <li><a href="{% url 'about' %}" class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">
+          About
+        </a></li>
+      <li><a href="{% url 'menu' %}" class="{% if request.resolver_match.url_name == 'menu' %}active{% endif %}">
+          Menu
+        </a></li>
+      <li><a href="{% url 'gallery' %}" class="{% if request.resolver_match.url_name == 'gallery' %}active{% endif %}">
+          Gallery
+        </a></li>
+      <li><a href="{% url 'contact' %}" class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
+          Contact
+        </a></li>
+    </ul>
+  </div>
+  <!-- Hamburger Menu for Mobile -->
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</header>

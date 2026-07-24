@@ -1,0 +1,418 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Contact
+{% endblock title %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ===== PAGE BANNER ===== -->
+<section class="page-banner">
+    <div class="banner-overlay"></div>
+    <div class="banner-content">
+        <h1>Contact <span>Us</span></h1>
+        <div class="breadcrumb">
+            <a href="{% url 'home' %}">Home</a>
+            <span><i class="fas fa-chevron-right"></i></span>
+            <span>Contact</span>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CONTACT INFO CARDS ===== -->
+<section class="contact-cards">
+    <div class="contact-cards-container">
+
+        <div class="contact-card fade-in">
+            <div class="contact-card-icon">
+                <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <h3>Our Location</h3>
+            <p>123 Food Street</p>
+            <p>City, State 12345</p>
+            <a href="https://maps.google.com" target="_blank" class="card-link">
+                Get Directions
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="contact-card fade-in">
+            <div class="contact-card-icon">
+                <i class="fas fa-phone-alt"></i>
+            </div>
+            <h3>Phone Number</h3>
+            <p>+1 234 567 890</p>
+            <p>+1 234 567 891</p>
+            <a href="tel:+1234567890" class="card-link">
+                Call Us Now
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="contact-card fade-in">
+            <div class="contact-card-icon">
+                <i class="fas fa-envelope"></i>
+            </div>
+            <h3>Email Address</h3>
+            <p>info@restaurant.com</p>
+            <p>support@restaurant.com</p>
+            <a href="mailto:info@restaurant.com" class="card-link">
+                Send Email
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="contact-card fade-in">
+            <div class="contact-card-icon">
+                <i class="fas fa-clock"></i>
+            </div>
+            <h3>Opening Hours</h3>
+            <p>Mon - Fri: 9AM - 10PM</p>
+            <p>Sat - Sun: 10AM - 11PM</p>
+            <a href="{% url 'menu' %}" class="card-link">
+                View Menu
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== CONTACT MAIN SECTION ===== -->
+<section class="contact-main">
+    <div class="contact-main-container">
+
+        <!-- ===== CONTACT FORM ===== -->
+        <div class="contact-form-wrapper fade-in">
+            <div class="form-header">
+                <p class="section-subtitle">Get In Touch</p>
+                <h2>Send Us A <span>Message</span></h2>
+                <p>Have a question or want to make a reservation?
+                    Fill out the form below and we will get
+                    back to you as soon as possible.</p>
+            </div>
+
+            <!-- Success Message -->
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                <i class="fas fa-check-circle"></i>
+                {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
+
+            <form method="POST" action="{% url 'contact' %}" id="contactForm" novalidate>
+                {% csrf_token %}
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">
+                            First Name <span class="required">*</span>
+                        </label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="firstName" name="first_name" placeholder="Enter first name" required>
+                        </div>
+                        <span class="error-msg" id="firstNameError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName">
+                            Last Name <span class="required">*</span>
+                        </label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="lastName" name="last_name" placeholder="Enter last name" required>
+                        </div>
+                        <span class="error-msg" id="lastNameError"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">
+                            Email Address <span class="required">*</span>
+                        </label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                        </div>
+                        <span class="error-msg" id="emailError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-phone"></i>
+                            <input type="tel" id="phone" name="phone" placeholder="Enter phone number">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">
+                        Subject <span class="required">*</span>
+                    </label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-tag"></i>
+                        <select id="subject" name="subject" required>
+                            <option value="">Select a subject</option>
+                            <option value="reservation">Table Reservation</option>
+                            <option value="order">Food Order</option>
+                            <option value="feedback">Feedback</option>
+                            <option value="complaint">Complaint</option>
+                            <option value="catering">Catering Service</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <span class="error-msg" id="subjectError"></span>
+                </div>
+
+                <!-- Reservation Fields -->
+                <div class="reservation-fields" id="reservationFields">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="reservationDate">
+                                Preferred Date
+                                <span class="required">*</span>
+                            </label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-calendar"></i>
+                                <input type="date" id="reservationDate" name="reservation_date">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="reservationTime">
+                                Preferred Time
+                                <span class="required">*</span>
+                            </label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-clock"></i>
+                                <input type="time" id="reservationTime" name="reservation_time">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="guests">Number of Guests</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-users"></i>
+                            <select id="guests" name="guests">
+                                <option value="">Select guests</option>
+                                <option value="1">1 Person</option>
+                                <option value="2">2 People</option>
+                                <option value="3">3 People</option>
+                                <option value="4">4 People</option>
+                                <option value="5">5 People</option>
+                                <option value="6+">6+ People</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">
+                        Message <span class="required">*</span>
+                    </label>
+                    <div class="input-wrapper textarea-wrapper">
+                        <i class="fas fa-comment-alt"></i>
+                        <textarea id="message" name="message" rows="5" placeholder="Write your message here..."
+                            required></textarea>
+                    </div>
+                    <span class="error-msg" id="messageError"></span>
+                    <span class="char-count" id="charCount">0 / 500</span>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="agree" id="agree" required>
+                        <span class="checkmark"></span>
+                        I agree to the
+                        <a href="#">Terms & Conditions</a>
+                        and
+                        <a href="#">Privacy Policy</a>
+                    </label>
+                    <span class="error-msg" id="agreeError"></span>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <span class="btn-text">
+                        <i class="fas fa-paper-plane"></i>
+                        Send Message
+                    </span>
+                    <span class="btn-loading" style="display:none;">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        Sending...
+                    </span>
+                </button>
+
+            </form>
+        </div>
+
+        <!-- ===== CONTACT SIDEBAR ===== -->
+        <div class="contact-sidebar fade-in">
+
+            <!-- Map -->
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387193.305935303!2d-74.25986548248684!3d40.69714941932609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1679000000000!5m2!1sen!2s"
+                    width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+
+            <!-- Social Media -->
+            <div class="social-section">
+                <h3>Follow Us</h3>
+                <p>Stay connected and follow us on social media
+                    for daily specials and updates!</p>
+                <div class="social-links">
+                    <a href="#" class="social-link facebook">
+                        <i class="fab fa-facebook-f"></i>
+                        <span>Facebook</span>
+                    </a>
+                    <a href="#" class="social-link instagram">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                    </a>
+                    <a href="#" class="social-link twitter">
+                        <i class="fab fa-twitter"></i>
+                        <span>Twitter</span>
+                    </a>
+                    <a href="#" class="social-link youtube">
+                        <i class="fab fa-youtube"></i>
+                        <span>YouTube</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="newsletter-section">
+                <h3>
+                    <i class="fas fa-bell"></i>
+                    Newsletter
+                </h3>
+                <p>Subscribe to get special offers and updates!</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <div class="newsletter-input">
+                        <input type="email" placeholder="Enter your email" id="newsletterEmail">
+                        <button type="submit">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    <span class="newsletter-msg" id="newsletterMsg">
+                    </span>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== FAQ SECTION ===== -->
+<section class="faq-section">
+    <div class="faq-container">
+        <div class="section-header">
+            <p class="section-subtitle">FAQ</p>
+            <h2>Frequently Asked <span>Questions</span></h2>
+        </div>
+
+        <div class="faq-list">
+
+            <div class="faq-item fade-in">
+                <button class="faq-question">
+                    <span>Do you accept walk-in customers?</span>
+                    <i class="fas fa-plus faq-icon"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes, we accept walk-in customers based on
+                        availability. However, we recommend making
+                        a reservation to guarantee your table,
+                        especially during peak hours.</p>
+                </div>
+            </div>
+
+            <div class="faq-item fade-in">
+                <button class="faq-question">
+                    <span>Do you offer vegetarian or vegan options?</span>
+                    <i class="fas fa-plus faq-icon"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Absolutely! We have a wide range of vegetarian
+                        and vegan dishes on our menu. Please let your
+                        server know about any dietary requirements and
+                        we will be happy to accommodate you.</p>
+                </div>
+            </div>
+
+            <div class="faq-item fade-in">
+                <button class="faq-question">
+                    <span>Can I host a private event at your restaurant?</span>
+                    <i class="fas fa-plus faq-icon"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes! We have a private dining room available
+                        for events such as birthdays, corporate dinners,
+                        and wedding receptions. Contact us for more
+                        details and pricing.</p>
+                </div>
+            </div>
+
+            <div class="faq-item fade-in">
+                <button class="faq-question">
+                    <span>Do you offer catering services?</span>
+                    <i class="fas fa-plus faq-icon"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes, we provide catering services for all types
+                        of events. Please contact us at least 2 weeks
+                        in advance to discuss your requirements and
+                        customize your menu.</p>
+                </div>
+            </div>
+
+            <div class="faq-item fade-in">
+                <button class="faq-question">
+                    <span>What is your cancellation policy?</span>
+                    <i class="fas fa-plus faq-icon"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>We kindly ask that you cancel or modify your
+                        reservation at least 24 hours in advance.
+                        This allows us to accommodate other guests.
+                        You can cancel via phone or email.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===== CTA SECTION ===== -->
+<section class="cta">
+    <div class="cta-content">
+        <h2>Ready to Visit <span>Us?</span></h2>
+        <p>We look forward to welcoming you to our restaurant!</p>
+        <div class="cta-buttons">
+            <a href="tel:+1234567890" class="btn btn-primary">
+                <i class="fas fa-phone"></i> Call Now
+            </a>
+            <a href="{% url 'menu' %}" class="btn btn-white">
+                View Our Menu
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
+
+{% block extra_js %}
+<script src="{% static 'js/contact.js' %}"></script>
+{% endblock %}

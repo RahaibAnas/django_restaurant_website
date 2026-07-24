@@ -1,0 +1,279 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+About
+{% endblock title %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ===== PAGE BANNER ===== -->
+<section class="page-banner">
+    <div class="banner-overlay"></div>
+    <div class="banner-content">
+        <h1>About <span>Us</span></h1>
+        <div class="breadcrumb">
+            <a href="{% url 'home' %}">Home</a>
+            <span><i class="fas fa-chevron-right"></i></span>
+            <span>About</span>
+        </div>
+    </div>
+</section>
+
+<!-- ===== ABOUT INTRO SECTION ===== -->
+<section class="about-intro">
+    <div class="about-intro-container">
+
+        <div class="about-intro-image fade-in">
+            <img src="{% static 'images/about-main.jpg' %}" alt="About Our Restaurant">
+            <div class="experience-badge">
+                <span class="years">13+</span>
+                <span class="years-text">Years of Experience</span>
+            </div>
+        </div>
+
+        <div class="about-intro-content fade-in">
+            <p class="section-subtitle">Our Story</p>
+            <h2>We Are More Than Just A <span>Restaurant</span></h2>
+            <p class="intro-text">
+                Welcome to our restaurant! Since 2010, we have been serving
+                delicious and authentic meals to our beloved customers.
+                Our journey started with a simple passion — to bring people
+                together through the joy of great food.
+            </p>
+            <p>
+                We believe that every meal tells a story. Our talented chefs
+                craft each dish with love, using only the freshest locally
+                sourced ingredients to ensure the highest quality experience
+                for every guest.
+            </p>
+
+            <div class="about-stats">
+                <div class="stat-item">
+                    <h3 class="counter" data-target="500">0</h3>
+                    <p>Happy Customers</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="counter" data-target="50">0</h3>
+                    <p>Menu Items</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="counter" data-target="15">0</h3>
+                    <p>Expert Chefs</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="counter" data-target="13">0</h3>
+                    <p>Years Experience</p>
+                </div>
+            </div>
+
+            <a href="{% url 'menu' %}" class="btn btn-primary">Explore Our Menu</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== OUR VALUES SECTION ===== -->
+<section class="our-values">
+    <div class="section-header">
+        <p class="section-subtitle">Why Choose Us</p>
+        <h2>Our Core <span>Values</span></h2>
+    </div>
+    <div class="values-container">
+
+        <div class="value-card fade-in">
+            <div class="value-icon">
+                <i class="fas fa-leaf"></i>
+            </div>
+            <h3>Fresh Ingredients</h3>
+            <p>We source only the freshest and highest quality
+                ingredients from local farms every single day.</p>
+        </div>
+
+        <div class="value-card fade-in">
+            <div class="value-icon">
+                <i class="fas fa-heart"></i>
+            </div>
+            <h3>Made With Love</h3>
+            <p>Every dish is prepared with passion and care
+                to ensure the best dining experience for you.</p>
+        </div>
+
+        <div class="value-card fade-in">
+            <div class="value-icon">
+                <i class="fas fa-users"></i>
+            </div>
+            <h3>Family Friendly</h3>
+            <p>We create a warm and welcoming environment
+                for families, friends and loved ones.</p>
+        </div>
+
+        <div class="value-card fade-in">
+            <div class="value-icon">
+                <i class="fas fa-award"></i>
+            </div>
+            <h3>Award Winning</h3>
+            <p>Recognized as one of the best restaurants
+                in the city for quality and taste.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== OUR STORY TIMELINE SECTION ===== -->
+<section class="our-story">
+    <div class="section-header">
+        <p class="section-subtitle">Our Journey</p>
+        <h2>How It All <span>Started</span></h2>
+    </div>
+    <div class="timeline">
+
+        <div class="timeline-item fade-in">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <span class="timeline-year">2010</span>
+                <h3>The Beginning</h3>
+                <p>Our restaurant opened its doors for the first time
+                    with a small team and a big dream to serve great food.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item right fade-in">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <span class="timeline-year">2013</span>
+                <h3>First Award</h3>
+                <p>We received our first local dining excellence award,
+                    recognizing our commitment to quality and service.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item fade-in">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <span class="timeline-year">2016</span>
+                <h3>Expansion</h3>
+                <p>We expanded our restaurant to accommodate more guests
+                    and introduced a new expanded menu.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item right fade-in">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <span class="timeline-year">2020</span>
+                <h3>Online Ordering</h3>
+                <p>Launched our online ordering system to bring
+                    our delicious food directly to your doorstep.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item fade-in">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <span class="timeline-year">2023</span>
+                <h3>Today</h3>
+                <p>Continuing to grow and serve thousands of happy
+                    customers with the same passion and dedication.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== MEET THE TEAM SECTION ===== -->
+<section class="our-team">
+    <div class="section-header">
+        <p class="section-subtitle">Our People</p>
+        <h2>Meet Our <span>Team</span></h2>
+    </div>
+    <div class="team-container">
+
+        <div class="team-card fade-in">
+            <div class="team-image">
+                <img src="{% static 'images/chef1.jpg' %}" alt="Chef 1">
+                <div class="team-social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="team-info">
+                <h3>Chef Marco</h3>
+                <span>Head Chef</span>
+                <p>15 years of culinary experience in Italian cuisine.</p>
+            </div>
+        </div>
+
+        <div class="team-card fade-in">
+            <div class="team-image">
+                <img src="{% static 'images/chef2.jpg' %}" alt="Chef 2">
+                <div class="team-social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="team-info">
+                <h3>Chef Sarah</h3>
+                <span>Pastry Chef</span>
+                <p>Award winning pastry chef with a passion for desserts.</p>
+            </div>
+        </div>
+
+        <div class="team-card fade-in">
+            <div class="team-image">
+                <img src="{% static 'images/chef3.jpg' %}" alt="Chef 3">
+                <div class="team-social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="team-info">
+                <h3>Chef James</h3>
+                <span>Grill Master</span>
+                <p>Specialist in grilled meats and BBQ dishes.</p>
+            </div>
+        </div>
+
+        <div class="team-card fade-in">
+            <div class="team-image">
+                <img src="{% static 'images/chef4.jpg' %}" alt="Chef 4">
+                <div class="team-social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="team-info">
+                <h3>Chef Lisa</h3>
+                <span>Sous Chef</span>
+                <p>Creative chef specializing in fusion cuisine.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== CTA SECTION ===== -->
+<section class="cta">
+    <div class="cta-content">
+        <h2>Come & Enjoy Our <span>Delicious Food</span></h2>
+        <p>Reserve your table today and experience the best dining!</p>
+        <div class="cta-buttons">
+            <a href="{% url 'contact' %}" class="btn btn-primary">Reserve a Table</a>
+            <a href="{% url 'menu' %}" class="btn btn-white">View Our Menu</a>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
+
+{% block extra_js %}
+<script src="{% static 'js/about.js' %}"></script>
+{% endblock %}

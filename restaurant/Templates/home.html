@@ -1,0 +1,240 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Home
+{% endblock title %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+
+
+<!-- ===== HERO SECTION ===== -->
+<section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <p class="hero-subtitle">Welcome to Our Restaurant</p>
+        <h1 class="hero-title">Delicious Food <br> Made With <span>Love</span></h1>
+        <p class="hero-description">
+            Experience the finest dining with fresh ingredients,
+            authentic recipes, and a warm atmosphere.
+        </p>
+        <div class="hero-buttons">
+            <a href="{% url 'menu' %}" class="btn btn-primary">View Menu</a>
+            <a href="{% url 'contact' %}" class="btn btn-secondary">Reserve Table</a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FEATURES SECTION ===== -->
+<section class="features">
+    <div class="features-container">
+
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-utensils"></i>
+            </div>
+            <h3>Fresh Food</h3>
+            <p>We use only the freshest ingredients sourced locally every day.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-truck"></i>
+            </div>
+            <h3>Fast Delivery</h3>
+            <p>Get your favorite meals delivered hot and fresh to your door.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-star"></i>
+            </div>
+            <h3>Best Quality</h3>
+            <p>Rated 5 stars by thousands of satisfied customers.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-clock"></i>
+            </div>
+            <h3>Open Daily</h3>
+            <p>We are open 7 days a week to serve you the best meals.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== ABOUT SECTION ===== -->
+<section class="home-about">
+    <div class="home-about-container">
+        <div class="home-about-image">
+            <img src="{% static 'images/about.jpg' %}" alt="About Us">
+        </div>
+        <div class="home-about-content">
+            <p class="section-subtitle">Our Story</p>
+            <h2>We Serve Food With <span>Passion</span></h2>
+            <p>
+                Our restaurant has been serving delicious meals since 2010.
+                We believe that great food brings people together.
+                Our chefs use traditional recipes with a modern twist
+                to create unforgettable dining experiences.
+            </p>
+            <ul class="about-list">
+                <li><i class="fas fa-check-circle"></i> 100% Fresh Ingredients</li>
+                <li><i class="fas fa-check-circle"></i> Expert Chefs</li>
+                <li><i class="fas fa-check-circle"></i> Cozy Atmosphere</li>
+                <li><i class="fas fa-check-circle"></i> Affordable Prices</li>
+            </ul>
+            <a href="{% url 'about' %}" class="btn btn-primary">Learn More</a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== POPULAR MENU SECTION ===== -->
+<section class="popular-menu">
+    <div class="section-header">
+        <p class="section-subtitle">Our Menu</p>
+        <h2>Popular <span>Dishes</span></h2>
+    </div>
+    <div class="menu-container">
+
+        <div class="menu-card">
+            <div class="menu-card-image">
+                <img src="{% static 'images/dish1.jpg' %}" alt="Dish 1">
+                <span class="menu-badge">Popular</span>
+            </div>
+            <div class="menu-card-content">
+                <h3>Grilled Chicken</h3>
+                <p>Juicy grilled chicken with herbs and spices</p>
+                <div class="menu-card-footer">
+                    <span class="price">$12.99</span>
+                    <a href="{% url 'menu' %}" class="btn btn-small">Order Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-card">
+            <div class="menu-card-image">
+                <img src="{% static 'images/dish2.jpg' %}" alt="Dish 2">
+                <span class="menu-badge">New</span>
+            </div>
+            <div class="menu-card-content">
+                <h3>Beef Burger</h3>
+                <p>Classic beef burger with fresh vegetables</p>
+                <div class="menu-card-footer">
+                    <span class="price">$9.99</span>
+                    <a href="{% url 'menu' %}" class="btn btn-small">Order Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-card">
+            <div class="menu-card-image">
+                <img src="{% static 'images/dish3.jpg' %}" alt="Dish 3">
+                <span class="menu-badge">Hot</span>
+            </div>
+            <div class="menu-card-content">
+                <h3>Margherita Pizza</h3>
+                <p>Classic pizza with fresh tomatoes and mozzarella</p>
+                <div class="menu-card-footer">
+                    <span class="price">$14.99</span>
+                    <a href="{% url 'menu' %}" class="btn btn-small">Order Now</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="view-all">
+        <a href="{% url 'menu' %}" class="btn btn-primary">View All Menu</a>
+    </div>
+</section>
+
+<!-- ===== TESTIMONIALS SECTION ===== -->
+<section class="testimonials">
+    <div class="section-header">
+        <p class="section-subtitle">Testimonials</p>
+        <h2>What Our <span>Customers Say</span></h2>
+    </div>
+    <div class="testimonials-container">
+
+        <div class="testimonial-card">
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p>"The food was absolutely amazing! Best restaurant in town.
+                Will definitely come back again!"</p>
+            <div class="testimonial-author">
+                <div class="author-avatar">JD</div>
+                <div>
+                    <h4>John Doe</h4>
+                    <span>Regular Customer</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p>"Incredible atmosphere and delicious food.
+                The service was top-notch and the staff were very friendly!"</p>
+            <div class="testimonial-author">
+                <div class="author-avatar">JS</div>
+                <div>
+                    <h4>Jane Smith</h4>
+                    <span>Food Blogger</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+            <p>"Great food at affordable prices.
+                The grilled chicken is my favorite. Highly recommended!"</p>
+            <div class="testimonial-author">
+                <div class="author-avatar">MB</div>
+                <div>
+                    <h4>Mike Brown</h4>
+                    <span>Local Resident</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== CTA SECTION ===== -->
+<section class="cta">
+    <div class="cta-content">
+        <h2>Ready to Experience <span>Great Food?</span></h2>
+        <p>Book a table now or order online for delivery!</p>
+        <div class="cta-buttons">
+            <a href="{% url 'contact' %}" class="btn btn-primary">Reserve a Table</a>
+            <a href="{% url 'menu' %}" class="btn btn-white">Order Online</a>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
+
+{% block extra_js %}
+<script src="{% static 'js/home.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% load static %}
+
+<footer>
+    <div class="footer-container">
+
+        <!-- Footer Logo & Description -->
+        <div class="footer-section">
+            <h2 class="footer-logo">Restaurant</h2>
+            <p>Serving delicious food with love and passion.
+                Come and enjoy the best dining experience.</p>
+            <!-- Social Media Icons -->
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'menu' %}">Menu</a></li>
+                <li><a href="{% url 'gallery' %}">Gallery</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Opening Hours -->
+        <div class="footer-section">
+            <h3>Opening Hours</h3>
+            <ul class="hours">
+                <li><span>Monday - Friday</span> <span>9:00 AM - 10:00 PM</span></li>
+                <li><span>Saturday</span> <span>10:00 AM - 11:00 PM</span></li>
+                <li><span>Sunday</span> <span>10:00 AM - 9:00 PM</span></li>
+            </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <ul class="contact-info">
+                <li><i class="fas fa-map-marker-alt"></i> 123 Food Street, City</li>
+                <li><i class="fas fa-phone"></i> +1 234 567 890</li>
+                <li><i class="fas fa-envelope"></i> info@restaurant.com</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <p>Made with ❤️ love | &copy; {{ year }} Restaurant. All Rights Reserved.</p>
+    </div>
+
+</footer>
